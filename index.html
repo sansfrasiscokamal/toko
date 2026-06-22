@@ -12,6 +12,13 @@
         @media (min-width: 992px) { .grid-container { grid-template-columns: repeat(5, 1fr); } }
         .product-card { border-radius: 12px; border: 1px solid #eee; overflow: hidden; transition: 0.3s; background: #fff; }
         .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .product-card a {
+          position: relative;
+          z-index: 999;
+        }
+        .carousel {
+          position: relative;
+        }
         
         /* Gaya Footer */
         footer { border-top: 1px solid #ddd; background: #fff; }
@@ -67,6 +74,7 @@
     </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="products.js"></script>
 <script>
     let itemsToShow = 4; // Menampilkan 4 produk diawal
@@ -74,6 +82,13 @@
     const loadMoreBtn = document.getElementById('loadMore');
 
     function renderUI(filter = "") {
+        // Hapus instance carousel lama agar memori tidak menumpuk dan macet saat dicari bolak-balik
+        const oldCarousels = grid.querySelectorAll('.carousel');
+        oldCarousels.forEach(c => {
+            const instance = bootstrap.Carousel.getInstance(c);
+            if (instance) instance.dispose();
+        });
+
         grid.innerHTML = "";
         const filtered = allProducts.filter(p => p.name.toLowerCase().includes(filter.toLowerCase()));
         
@@ -85,16 +100,45 @@
 
         document.getElementById('no-product').style.display = "none";
         const limit = filter === "" ? itemsToShow : filtered.length;
-
+        
         filtered.slice(0, limit).forEach(p => {
-            grid.innerHTML += `
-                <div class="product-card p-2 shadow-sm">
-                    <div style="height: 160px;" class="rounded overflow-hidden mb-2">
-                        <img src="${p.images[0]}" class="w-100 h-100" style="object-fit:cover;" onerror="this.src='https://placehold.co/400x400?text=No+Photo'">
+            // STEP 1: Buat element pembungkus (card produk) secara mandiri di DOM
+            const cardElement = document.createElement('div');
+            cardElement.className = "product-card p-2 shadow-sm";
+
+            // STEP 2: Isi bagian Carousel, Nama Produk, dan Harga saja ke innerHTML cardElement
+            cardElement.innerHTML = `
+                <div id="carousel${p.id}" class="carousel slide mb-2" data-bs-interval="false">
+                    <div class="carousel-inner">${p.images.map((img, index) => `
+                        <div class="carousel-item ${index === 0 ? 'active' : ''}">
+                            <div class="ratio ratio-1x1" style="background-color: #f8f9fa; min-height: 160px;">
+                                <img src="${img}" class="rounded-3" style="object-fit: contain; width: 100%; height: 100%;" onerror="this.src='https://placehold.co/600x600?text=Produk'">
+                            </div>
+                        </div>
+                    `).join('')}
                     </div>
-                    <p class="mb-1 fw-bold text-truncate" style="font-size:0.85rem;">${p.name}</p>
-                    <a href="detail.html?id=${p.id}" class="btn btn-sm btn-dark w-100 rounded-pill">Lihat Detail</a>
-                </div>`;
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel${p.id}" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel${p.id}" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+                <p class="mb-1 fw-bold text-truncate" style="font-size:0.85rem;">${p.name}</p>
+                <p class="text-danger fw-bold mb-2">Rp ${p.price.toLocaleString('id-ID')}</p>
+            `;
+
+            // STEP 3: SEPARASI TOMBOL DETAIL - Dibuat terpisah sebagai objek DOM murni (bukan teks HTML biasa)
+            const detailBtn = document.createElement('a');
+            detailBtn.href = `detail.html?id=${p.id}`;
+            detailBtn.className = "btn btn-sm btn-dark w-100 rounded-pill position-relative";
+            detailBtn.innerText = "Lihat Detail";
+
+            // STEP 4: Tempelkan tombol detail secara aman di bagian paling bawah di dalam card produk
+            cardElement.appendChild(detailBtn);
+
+            // STEP 5: Masukkan objek card produk utuh ke dalam grid utama katalog
+            grid.appendChild(cardElement);
         });
 
         // Logika tampilkan tombol "Lihat Selengkapnya"
@@ -108,6 +152,7 @@
     // FUNGSI RENDER SOSMED (Agar ikon muncul)
     function renderSosmed() {
         const container = document.getElementById('sosmedContainer');
+        container.innerHTML = ""; // Pastikan kosong sebelum diisi ulang
         const iconMapping = {
             instagram: "fa-brands fa-instagram",
             youtube: "fa-brands fa-youtube",
@@ -130,6 +175,7 @@
         renderUI(); 
     });
 
+    // Menghindari gangguan refresh saat mengetik pencarian
     document.getElementById('searchInput').addEventListener('input', (e) => renderUI(e.target.value));
 
     // Jalankan pas loading

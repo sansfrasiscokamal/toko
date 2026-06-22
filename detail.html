@@ -10,7 +10,14 @@
         .btn-shopee { background-color: #ee4d2d; color: #fff; border: none; }
         .btn-wa { background-color: #25d366; color: #fff; border: none; }
         .btn-tiktok:hover, .btn-shopee:hover, .btn-wa:hover { color: #fff; opacity: 0.8; }
-        .carousel-item img { height: 400px; object-fit: cover; width: 100%; }
+        
+        /* FIX UTAMA CSS: Memaksa gambar mengikuti rasio kotak pembungkusnya secara penuh */
+        .carousel-item .ratio img { 
+            width: 100% !important; 
+            height: 100% !important; 
+            object-fit: contain !important; 
+        }
+        
         .carousel-control-prev-icon, .carousel-control-next-icon { background-color: rgba(0,0,0,0.6); border-radius: 50%; }
         .desc-section { background: #fff; border-radius: 12px; padding: 15px; border: 1px solid #eee; }
     </style>
@@ -23,17 +30,23 @@
         <button class="btn btn-sm btn-link text-decoration-none fw-bold" onclick="copyLink()">🔗 Salin Link</button>
     </div>
 
-    <div id="productCarousel" class="carousel slide rounded-4 shadow overflow-hidden" data-bs-touch="true" data-bs-interval="false">
+    <div id="productCarousel" class="carousel slide rounded-4 shadow overflow-hidden" data-bs-ride="false">
         <div class="carousel-inner" id="carouselContent"></div>
         <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
         <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
     </div>
 
     <h2 id="productName" class="mt-4 fw-bold"></h2>
-    
+    <div class="price-section mt-2">
+      <h4 id="productPrice" class="text-danger fw-bold mb-0"></h4>
+      <small id="productGrosir" class="text-success"></small>
+      <div class="mt-1">
+        <small id="productMinOrder" class="text-muted fw-bold d-block" style="font-size: 0.8rem;"></small>
+      </div>
+    </div>
     <div class="desc-section mt-3 shadow-sm">
         <p class="fw-bold mb-1" style="font-size: 0.9rem;">Deskripsi Produk:</p>
-        <p id="productDesc" class="text-muted small mb-0"></p>
+        <p id="productprice" class="text-muted small mb-0 fw-bold d-none"></p> <p id="productDesc" class="text-muted small mb-0" style="white-space: pre-line;"></p>
     </div>
 
     <div class="row g-2 mt-4 text-center">
@@ -62,25 +75,63 @@
     const productId = params.get('id');
     const product = allProducts.find(p => p.id == productId) || allProducts[0];
 
-    // Mengisi Nama & Deskripsi
+    // Isi Konten Teks
     document.getElementById('productName').innerText = product.name;
+    
+    const formattedPrice = `Rp ${product.price.toLocaleString("id-ID")}`;
+    document.getElementById('productPrice').innerText = formattedPrice;
+    
+    document.getElementById('productGrosir').innerText = `Harga Grosir Rp ${product.grosirPrice.toLocaleString("id-ID")}`;
+    
+    // Menampilkan minimal order dari array secara dinamis
+    if (product.minOrder) {
+        document.getElementById('productMinOrder').innerText = ` Minimal Pembelian Grosir: ${product.minOrder} Pcs`;
+    } else {
+        document.getElementById('productMinOrder').innerText = ` Minimal Pembelian Grosir: 12 Pcs`; // fallback default jika lupa diisi
+    }
+    
     document.getElementById('productDesc').innerText = product.description;
 
-    // Mengisi Link Tujuan (INI SOLUSINYA)
+    // Mengisi Link Tujuan
     document.getElementById('linkTiktok').href = product.links.tiktok;
     document.getElementById('linkShopee').href = product.links.shopee;
     document.getElementById('linkWA_small').href = product.links.wa;
     document.getElementById('linkWA_big').href = product.links.wa;
 
-    // Carousel
+    // Render Gambar Carousel secara aman
     const carouselContent = document.getElementById('carouselContent');
-    product.images.forEach((img, index) => {
-        carouselContent.innerHTML += `
-            <div class="carousel-item ${index === 0 ? 'active' : ''}">
-                <img src="${img}" onerror="this.src='https://placehold.co/600x600?text=Produk+${index+1}'">
-            </div>
-        `;
-    });
+    carouselContent.innerHTML = ""; 
+    
+    if (product.images && product.images.length > 0) {
+        product.images.forEach((img, index) => {
+            carouselContent.innerHTML += `
+                <div class="carousel-item ${index === 0 ? 'active' : ''}">
+                    <div class="ratio ratio-1x1" style="background-color: #f8f9fa;">
+                        <img src="${img}" onerror="this.src='https://placehold.co/600x600?text=Produk+${index+1}'}">
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    // Trik Terpenting: Beri jeda 100ms agar susunan gambar di atas selesai direkatkan sempurna ke DOM 
+    // Baru setelah itu panggil perintah aktivasi Bootstrap Carousel.
+    setTimeout(() => {
+        const myCarouselEl = document.getElementById('productCarousel');
+        if (myCarouselEl) {
+            // Hapus instance lama yang mengendap di cache browser
+            const existingInstance = bootstrap.Carousel.getInstance(myCarouselEl);
+            if (existingInstance) {
+                existingInstance.dispose();
+            }
+            
+            // Jalankan inisialisasi murni
+            new bootstrap.Carousel(myCarouselEl, {
+                touch: true,
+                interval: false
+            });
+        }
+    }, 100);
 
     function copyLink() {
         navigator.clipboard.writeText(window.location.href);
