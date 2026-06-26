@@ -46,10 +46,24 @@
     </div>
     <div class="desc-section mt-3 shadow-sm">
         <p class="fw-bold mb-1" style="font-size: 0.9rem;">Deskripsi Produk:</p>
-        <p id="productprice" class="text-muted small mb-0 fw-bold d-none"></p> <p id="productDesc" class="text-muted small mb-0" style="white-space: pre-line;"></p>
+        <p id="productprice" class="text-muted small mb-0 fw-bold d-none"></p> 
+        <p id="productDesc" class="text-muted small mb-0" style="white-space: pre-line;"></p>
     </div>
 
-    <div class="row g-2 mt-4 text-center">
+    <div class="row g-2 mt-3">
+        <div class="d-flex align-items-center flex-nowrap mt-2 px-1" style="gap: 15px;">
+          <div id="containerTerjualTiktok" style="display: none !important; min-width: max-content; margin-left: 10px;margin-bottom:-15px">
+              <span id="textTerjualTiktok" class="text-muted text-nowrap" style="font-size: 0.7rem; font-weight: 500;"></span>
+          </div>
+      
+          <div id="containerTerjualShopee" style="display: none !important; min-width: max-content; margin-left: 25px; margin-bottom:-15px">
+              <span id="textTerjualShopee" class="text-muted text-nowrap" style="font-size: 0.7rem; font-weight: 500;"></span>
+          </div>
+        </div>
+        <div class="col-4"></div>
+    </div>
+
+    <div class="row g-2 mt-1 text-center">
         <div class="col-4">
             <a href="#" id="linkTiktok" target="_blank" class="btn btn-tiktok w-100 py-2 rounded-3 shadow-sm fw-bold" style="font-size: 0.75rem;">Beli di Tiktok</a>
         </div>
@@ -81,16 +95,45 @@
     const formattedPrice = `Rp ${product.price.toLocaleString("id-ID")}`;
     document.getElementById('productPrice').innerText = formattedPrice;
     
-    document.getElementById('productGrosir').innerText = `Harga Grosir Rp ${product.grosirPrice.toLocaleString("id-ID")}`;
-    
-    // Menampilkan minimal order dari array secara dinamis
-    if (product.minOrder) {
-        document.getElementById('productMinOrder').innerText = ` Minimal Pembelian Grosir: ${product.minOrder} Pcs`;
+    const grosir_el = document.getElementById('productGrosir');
+    const minOrder_el = document.getElementById('productMinOrder');
+
+    // Kondisi untuk Harga Grosir
+    if (product.grosirPrice && product.grosirPrice > 0) {
+        grosir_el.innerText = `Harga Grosir Rp ${product.grosirPrice.toLocaleString("id-ID")}`;
+        grosir_el.style.display = "block"; 
     } else {
-        document.getElementById('productMinOrder').innerText = ` Minimal Pembelian Grosir: 12 Pcs`; // fallback default jika lupa diisi
+        grosir_el.style.display = "none";  
+    }
+    
+    // Kondisi untuk Minimal Order
+    if (product.minOrder && product.minOrder > 0) {
+        minOrder_el.innerText = ` Minimal Pembelian Grosir: ${product.minOrder} Pcs`;
+        minOrder_el.style.display = "block"; 
+    } else {
+        minOrder_el.style.display = "none";  
     }
     
     document.getElementById('productDesc').innerText = product.description;
+    
+    // 🌟 LOGIKA BARU: Cek data terjualtiktok & terjualshopee secara dinamis
+    const containerTT = document.getElementById('containerTerjualTiktok');
+    const textTT = document.getElementById('textTerjualTiktok');
+    if (product.terjualtiktok) {
+        textTT.innerText = `Disini ${product.terjualtiktok} Terjual`;
+        containerTT.style.setProperty('display', 'flex', 'important');
+    } else {
+        containerTT.style.setProperty('display', 'none', 'important');
+    }
+
+    const containerSP = document.getElementById('containerTerjualShopee');
+    const textSP = document.getElementById('textTerjualShopee');
+    if (product.terjualshopee) {
+        textSP.innerText = `Disini ${product.terjualshopee} Terjual`;
+        containerSP.style.setProperty('display', 'flex', 'important');
+    } else {
+        containerSP.style.setProperty('display', 'none', 'important');
+    }
 
     // Mengisi Link Tujuan
     document.getElementById('linkTiktok').href = product.links.tiktok;
@@ -114,18 +157,13 @@
         });
     }
 
-    // Trik Terpenting: Beri jeda 100ms agar susunan gambar di atas selesai direkatkan sempurna ke DOM 
-    // Baru setelah itu panggil perintah aktivasi Bootstrap Carousel.
     setTimeout(() => {
         const myCarouselEl = document.getElementById('productCarousel');
         if (myCarouselEl) {
-            // Hapus instance lama yang mengendap di cache browser
             const existingInstance = bootstrap.Carousel.getInstance(myCarouselEl);
             if (existingInstance) {
                 existingInstance.dispose();
             }
-            
-            // Jalankan inisialisasi murni
             new bootstrap.Carousel(myCarouselEl, {
                 touch: true,
                 interval: false

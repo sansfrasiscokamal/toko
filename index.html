@@ -125,7 +125,13 @@
                     </button>
                 </div>
                 <p class="mb-1 fw-bold text-truncate" style="font-size:0.85rem;">${p.name}</p>
-                <p class="text-danger fw-bold mb-2">Rp ${p.price.toLocaleString('id-ID')}</p>
+                <div class="d-flex align-items-center justify-content-between flex-nowrap mb-2" style="gap: 5px;">
+                <span class="text-danger fw-bold text-nowrap" style="font-size: 0.85rem;">
+                Rp ${p.price.toLocaleString('id-ID')}
+                </span>
+                ${p.terjualtiktok ? `<span class="text-muted text-nowrap text-end" style="font-size: 0.7rem; min-width: max-content;">${p.terjualtiktok} Terjual</span>` : ''}
+                </div>
+</div>
             `;
 
             // STEP 3: SEPARASI TOMBOL DETAIL - Dibuat terpisah sebagai objek DOM murni (bukan teks HTML biasa)
