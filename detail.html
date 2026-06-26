@@ -48,6 +48,10 @@
         <p class="fw-bold mb-1" style="font-size: 0.9rem;">Deskripsi Produk:</p>
         <p id="productprice" class="text-muted small mb-0 fw-bold d-none"></p> 
         <p id="productDesc" class="text-muted small mb-0" style="white-space: pre-line;"></p>
+        
+        <div id="descCarousel" class="carousel slide rounded-3 shadow-sm overflow-hidden mt-3 d-none" data-bs-ride="false">
+            <div class="carousel-inner" id="descCarouselContent"></div>
+        </div>
     </div>
 
     <div class="row g-2 mt-3">
@@ -115,6 +119,34 @@
     }
     
     document.getElementById('productDesc').innerText = product.description;
+    document.getElementById('productDesc').innerText = product.description;
+    
+document.getElementById('productDesc').innerText = product.description;
+    
+document.getElementById('productDesc').innerText = product.description; //
+    
+    // 🌟 LOGIKA BARU: Render Carousel Gambar Deskripsi
+    const descCarouselEl = document.getElementById('descCarousel');
+    const descCarouselContent = document.getElementById('descCarouselContent');
+    descCarouselContent.innerHTML = ""; 
+    // Cek apakah produk memiliki array descImages dan ada isinya
+    if (product.descImages && product.descImages.length > 0) {
+        // Munculkan container carousel
+        descCarouselEl.classList.remove('d-none');
+        
+        product.descImages.forEach((img, index) => {
+            descCarouselContent.innerHTML += `
+                <div class="carousel-item ${index === 0 ? 'active' : ''}">
+                    <div class="ratio ratio-1x1" style="background-color: #f8f9fa;">
+                        <img src="${img}" class="w-100 h-100" style="object-fit: contain;" onerror="this.src='https://placehold.co/600x600?text=Detail+${index+1}'}">
+                    </div>
+                </div>
+            `;
+        });
+    } else {
+        // Sembunyikan jika tidak ada gambar deskripsi
+        descCarouselEl.classList.add('d-none');
+    }
     
     // 🌟 LOGIKA BARU: Cek data terjualtiktok & terjualshopee secara dinamis
     const containerTT = document.getElementById('containerTerjualTiktok');
@@ -158,18 +190,22 @@
     }
 
     setTimeout(() => {
-        const myCarouselEl = document.getElementById('productCarousel');
+        // Inisialisasi Carousel Atas (Utama)
+        const myCarouselEl = document.getElementById('productCarousel'); //
         if (myCarouselEl) {
-            const existingInstance = bootstrap.Carousel.getInstance(myCarouselEl);
-            if (existingInstance) {
-                existingInstance.dispose();
-            }
-            new bootstrap.Carousel(myCarouselEl, {
-                touch: true,
-                interval: false
-            });
+            const existingInstance = bootstrap.Carousel.getInstance(myCarouselEl); //
+            if (existingInstance) { existingInstance.dispose(); } //
+            new bootstrap.Carousel(myCarouselEl, { touch: true, interval: false }); //
         }
-    }, 100);
+
+        // 🌟 Tambahkan ini untuk Inisialisasi Carousel Deskripsi (Bawah)
+        const descCarouselElObj = document.getElementById('descCarousel');
+        if (descCarouselElObj) {
+            const existingDescInstance = bootstrap.Carousel.getInstance(descCarouselElObj);
+            if (existingDescInstance) { existingDescInstance.dispose(); }
+            new bootstrap.Carousel(descCarouselElObj, { touch: true, interval: false });
+        }
+    }, 100); //
 
     function copyLink() {
         navigator.clipboard.writeText(window.location.href);

@@ -9,6 +9,7 @@ const allProducts = [
         terjualtiktok:"137,7k",
         terjualshopee:"",
         description: "Bahan : lacost pique \n usia direkomendasikan : 1-11tahun \n pola: polos \n \n silahkan order ",
+        descImages: ["img/ukuranAtasanPolo1.jpg", "img/ukuranAtasanPolo2.jpg"],
         links: {
             tiktok: "https://vt.tokopedia.com/t/ZS966NsNDn7Be-AA8vw/",
             shopee: "#",
@@ -25,6 +26,7 @@ const allProducts = [
         terjualtiktok:"26,1k",
         terjualshopee:"",
         description: "Bahan : Babyterry premium \n motif : bordir",
+        descImages: ["img/ukuranatasanSummer1.jpg", "img/ukuranatasanSummer2.jpg"],
         links: {
             tiktok: "https://vt.tokopedia.com/t/ZS966tAnXWETL-ti0RP/",
             shopee: "https://s.shopee.co.id/6KyftvEhmu",
@@ -41,6 +43,7 @@ const allProducts = [
         terjualtiktok:"85k",
         terjualshopee:"",
         description: "Bahan : knit premium \n unisex",
+        descImages: ["img/ukurankaosPoloAnak1.jpg", "img/ukurankaosPoloAnak2.jpg"],
         links: {
             tiktok: "https://vt.tokopedia.com/t/ZS966nYjMFAhg-lKm0l/",
             shopee: "https://s.shopee.co.id/807QFrGjI1",
@@ -56,7 +59,8 @@ const allProducts = [
         minOrder: 0,
         terjualtiktok:"391,9k",
         terjualshopee:"",
-        description: "Bahan: Babyterry Premium & Dropneedle Rib Tebal \n motif : bordir",
+        description: "Bahan: cotton combed 24s \n motif : salur",
+        descImages: ["img/ukuranbravekidsBroadstripe1.jpg"],
         links: {
             tiktok: "https://vt.tokopedia.com/t/ZS966nUhEsuRu-qUZTc/",
             shopee: "https://s.shopee.co.id/60MLu54FDm",
@@ -72,7 +76,8 @@ const allProducts = [
         minOrder: 0,
         terjualtiktok:"428,4k",
         terjualshopee:"",
-        description: "Celana",
+        description: "Celana pendek",
+        descImages: ["img/ukurankakathayaDalvinCelanaAnak1.jpg", "img/ukurankakathayaDalvinCelanaAnak2.jpg" ],
         links: {
             tiktok: "https://vt.tokopedia.com/t/ZS96kgX8s3gAD-IAUPx/",
             shopee: "https://s.shopee.co.id/60MLu54FDm",
@@ -88,7 +93,8 @@ const allProducts = [
         minOrder: 0,
         terjualtiktok:"264,3k",
         terjualshopee:"",
-        description: " ",
+        description: "Bahan: katun \n jenis pakaian: kaos oblong",
+        descImages: ["img/ukurankaosAnakMotifKucingKucauMania1.jpg", "img/ukurankaosAnakMotifKucingKucauMania2.jpg" ],
         links: {
             tiktok: "https://vt.tokopedia.com/t/ZS96kWf4FTr78-lXE8C/",
             shopee: "https://s.shopee.co.id/60MLu54FDm",
@@ -105,6 +111,7 @@ const allProducts = [
         terjualtiktok:"291,4k",
         terjualshopee:"",
         description: "Bahan: katun \n motif : printing",
+        descImages: ["img/ukuranlittlevinSetelanAnakBiru1.jpg", "img/ukuranlittlevinSetelanAnakBiru2.jpg" ],
         links: {
             tiktok: "https://vt.tokopedia.com/t/ZS96kpWwL3X57-rgmfH/",
             shopee: "https://s.shopee.co.id/60MLu54FDm",
@@ -121,6 +128,7 @@ const allProducts = [
         terjualtiktok:"324,5k",
         terjualshopee:"",
         description: "Bahan: katun \n motif : printing",
+        descImages: ["img/ukuranlittlevinSetelanAnakBiru1.jpg", "img/ukuranlittlevinSetelanAnakBiru2.jpg" ],
         links: {
             tiktok: "https://vt.tokopedia.com/t/ZS96kGFbCRKJX-WKoS0/",
             shopee: "https://s.shopee.co.id/60MLu54FDm",
@@ -137,6 +145,7 @@ const allProducts = [
         terjualtiktok:"55,1k",
         terjualshopee:"",
         description: "Bahan: Babyterry Premium & Dropneedle Rib Tebal \n motif : bordir",
+        descImages: ["img/ukuranmilmodeSetelanAnakKingsley1.jpg", "img/ukuranmilmodeSetelanAnakKingsley2.jpg" ],
         links: {
             tiktok: "https://vt.tokopedia.com/t/ZS96ktM3FKasR-2jmNd/",
             shopee: "https://s.shopee.co.id/60MLu54FDm",
@@ -153,6 +162,7 @@ const allProducts = [
         terjualtiktok:"20,5k",
         terjualshopee:"",
         description: "Bahan: katun \n jenis pakaian : setelan",
+        descImages: ["img/ukuranonesetKaosAnakUnisex1.jpg", "img/ukuranonesetKaosAnakUnisex2.jpg", "img/ukuranonesetKaosAnakUnisex3.jpg" ],
         links: {
             tiktok: "https://vt.tokopedia.com/t/ZS96kndcuXweD-0xW9u/",
             shopee: "https://s.shopee.co.id/60MLu54FDm",
@@ -169,6 +179,7 @@ const allProducts = [
         terjualtiktok:"273,2k",
         terjualshopee:"",
         description: "Bahan: jersey \n printing : fullprint",
+        descImages: ["img/ukuransetelanAnakBahanJerseyNeck1.jpg", "img/ukuransetelanAnakBahanJerseyNeck2.jpg"],
         links: {
             tiktok: "https://vt.tokopedia.com/t/ZS96kpRAeGQXm-BuSuh/",
             shopee: "https://s.shopee.co.id/60MLu54FDm",
@@ -185,6 +196,7 @@ const allProducts = [
         terjualtiktok:"65,7k",
         terjualshopee:"",
         description: "Bahan: katun Babyterry \n jenis pakaian: setelan",
+        descImages: ["img/ukuransetelanAnakBajuUnisex1.jpg", "img/ukuransetelanAnakBajuUnisex2.jpg"],
         links: {
             tiktok: "https://vt.tokopedia.com/t/ZS96k74pFx6nV-6Udcb/",
             shopee: "https://s.shopee.co.id/60MLu54FDm",
@@ -201,6 +213,7 @@ const allProducts = [
         terjualtiktok:"31,7k",
         terjualshopee:"",
         description: "Bahan: waffle uniqlo \n Desain : Casual",
+        descImages: ["img/ukuransetelanAnakCasualLaki1.jpg", "img/ukuransetelanAnakCasualLaki2.jpg"],
         links: {
             tiktok: "https://vt.tokopedia.com/t/ZS96kvDxKM1rh-q4GEP/",
             shopee: "https://s.shopee.co.id/60MLu54FDm",
@@ -217,6 +230,7 @@ const allProducts = [
         terjualtiktok:"61,9k",
         terjualshopee:"",
         description: "Bahan: Babyterry \n set anak baju dan celana",
+        descImages: ["img/ukuransetelanAnakMotifF1.jpg", "img/ukuransetelanAnakMotifF2.jpg"],
         links: {
             tiktok: "https://vt.tokopedia.com/t/ZS96kvGfDMDNb-eo64P/",
             shopee: "https://s.shopee.co.id/60MLu54FDm",
@@ -233,6 +247,7 @@ const allProducts = [
         terjualtiktok:"44,3k",
         terjualshopee:"",
         description: "Bahan: Babyterry Premium \n motif : salur",
+        descImages: ["img/ukuransetelanBajuSalurCargo1.jpg", "img/ukuransetelanBajuSalurCargo2.jpg"],
         links: {
             tiktok: "https://vt.tokopedia.com/t/ZS96kcrY86ojH-eSJSH/",
             shopee: "https://s.shopee.co.id/60MLu54FDm",
@@ -249,6 +264,7 @@ const allProducts = [
         terjualtiktok:"851,6k",
         terjualshopee:"",
         description: "Bahan: Rayon viscose \n hiasan: kupu-kupu",
+        descImages: ["img/ukuranshafaKidsDressBayi1.jpg", "img/ukuranshafaKidsDressBayi2.jpg"],
         links: {
             tiktok: "https://vt.tokopedia.com/t/ZS96kct6E1VUt-joyZD/",
             shopee: "https://s.shopee.co.id/60MLu54FDm",
