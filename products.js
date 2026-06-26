@@ -29,7 +29,7 @@ const allProducts = [
         descImages: ["img/ukuranatasanSummer1.jpg", "img/ukuranatasanSummer2.jpg"],
         links: {
             tiktok: "https://vt.tokopedia.com/t/ZS966tAnXWETL-ti0RP/",
-            shopee: "https://s.shopee.co.id/6KyftvEhmu",
+            shopee: "#",
             wa: "https://wa.me/6285141632570?text=Asalamualaikum, saya mau tanya produk MILMODE- ATASAN ANAK SUMMER (6Bulan-6Tahun)"
         }
     },
@@ -46,7 +46,7 @@ const allProducts = [
         descImages: ["img/ukurankaosPoloAnak1.jpg", "img/ukurankaosPoloAnak2.jpg"],
         links: {
             tiktok: "https://vt.tokopedia.com/t/ZS966nYjMFAhg-lKm0l/",
-            shopee: "https://s.shopee.co.id/807QFrGjI1",
+            shopee: "#",
             wa: "https://wa.me/6285141632570?text=Asalamualaikum, saya mau tanya produk Setelan Anak Hiro Baju Anak Uniseks"
         }
     },
@@ -63,7 +63,7 @@ const allProducts = [
         descImages: ["img/ukuranbravekidsBroadstripe1.jpg"],
         links: {
             tiktok: "https://vt.tokopedia.com/t/ZS966nUhEsuRu-qUZTc/",
-            shopee: "https://s.shopee.co.id/60MLu54FDm",
+            shopee: "#",
             wa: "https://wa.me/6285141632570?text=Asalamualaikum, saya mau tanya produk MILMODE SETELAN ANAK KINGSLEY"
         }
     },
@@ -80,7 +80,7 @@ const allProducts = [
         descImages: ["img/ukurankakathayaDalvinCelanaAnak1.jpg", "img/ukurankakathayaDalvinCelanaAnak2.jpg" ],
         links: {
             tiktok: "https://vt.tokopedia.com/t/ZS96kgX8s3gAD-IAUPx/",
-            shopee: "https://s.shopee.co.id/60MLu54FDm",
+            shopee: "#",
             wa: "https://wa.me/6285141632570?text=Asalamualaikum, saya mau tanya produk KAKATHAYA Dalvin Celana Anak Laki Laki Celana Pendek Anak Laki Laki Celana Harian Anak 1-11 Tahun"
         }
     },
@@ -97,7 +97,7 @@ const allProducts = [
         descImages: ["img/ukurankaosAnakMotifKucingKucauMania1.jpg", "img/ukurankaosAnakMotifKucingKucauMania2.jpg" ],
         links: {
             tiktok: "https://vt.tokopedia.com/t/ZS96kWf4FTr78-lXE8C/",
-            shopee: "https://s.shopee.co.id/60MLu54FDm",
+            shopee: "#",
             wa: "https://wa.me/6285141632570?text=Asalamualaikum, saya mau tanya produk Kaos Anak Motif Kucing Kicau Mania untuk usia 1-12 Tahun"
         }
     },
@@ -114,7 +114,7 @@ const allProducts = [
         descImages: ["img/ukuranlittlevinSetelanAnakBiru1.jpg", "img/ukuranlittlevinSetelanAnakBiru2.jpg" ],
         links: {
             tiktok: "https://vt.tokopedia.com/t/ZS96kpWwL3X57-rgmfH/",
-            shopee: "https://s.shopee.co.id/60MLu54FDm",
+            shopee: "#",
             wa: "https://wa.me/6285141632570?text=Asalamualaikum, saya mau tanya produk LITTLEVIN SETELAN ANAK PEREMPUAN FULL MOTIF CREAM SERIES KARAKTER 0-5 TAHUN"
         }
     },
@@ -131,7 +131,7 @@ const allProducts = [
         descImages: ["img/ukuranlittlevinSetelanAnakBiru1.jpg", "img/ukuranlittlevinSetelanAnakBiru2.jpg" ],
         links: {
             tiktok: "https://vt.tokopedia.com/t/ZS96kGFbCRKJX-WKoS0/",
-            shopee: "https://s.shopee.co.id/60MLu54FDm",
+            shopee: "#",
             wa: "https://wa.me/6285141632570?text=Asalamualaikum, saya mau tanya produk LITTLEVIN - SETELAN ANAK  FULLPRINT  CREAM SERIES KARAKTER 0-5 TAHUN"
         }
     },
@@ -148,7 +148,7 @@ const allProducts = [
         descImages: ["img/ukuranmilmodeSetelanAnakKingsley1.jpg", "img/ukuranmilmodeSetelanAnakKingsley2.jpg" ],
         links: {
             tiktok: "https://vt.tokopedia.com/t/ZS96ktM3FKasR-2jmNd/",
-            shopee: "https://s.shopee.co.id/60MLu54FDm",
+            shopee: "#",
             wa: "https://wa.me/6285141632570?text=Asalamualaikum, saya mau tanya produk MILMODE SETELAN ANAK KINGSLEY"
         }
     },
@@ -165,7 +165,7 @@ const allProducts = [
         descImages: ["img/ukuranonesetKaosAnakUnisex1.jpg", "img/ukuranonesetKaosAnakUnisex2.jpg", "img/ukuranonesetKaosAnakUnisex3.jpg" ],
         links: {
             tiktok: "https://vt.tokopedia.com/t/ZS96kndcuXweD-0xW9u/",
-            shopee: "https://s.shopee.co.id/60MLu54FDm",
+            shopee: "#",
             wa: "https://wa.me/6285141632570?text=Asalamualaikum, saya mau tanya produk MILMODE SETELAN ANAK KINGSLEY"
         }
     },
@@ -182,7 +182,7 @@ const allProducts = [
         descImages: ["img/ukuransetelanAnakBahanJerseyNeck1.jpg", "img/ukuransetelanAnakBahanJerseyNeck2.jpg"],
         links: {
             tiktok: "https://vt.tokopedia.com/t/ZS96kpRAeGQXm-BuSuh/",
-            shopee: "https://s.shopee.co.id/60MLu54FDm",
+            shopee: "#",
             wa: "https://wa.me/6285141632570?text=Asalamualaikum, saya mau tanya produk STELAN ANAK SETELAN BAHAN JERSEY V NECK"
         }
     },
@@ -199,7 +199,7 @@ const allProducts = [
         descImages: ["img/ukuransetelanAnakBajuUnisex1.jpg", "img/ukuransetelanAnakBajuUnisex2.jpg"],
         links: {
             tiktok: "https://vt.tokopedia.com/t/ZS96k74pFx6nV-6Udcb/",
-            shopee: "https://s.shopee.co.id/60MLu54FDm",
+            shopee: "#",
             wa: "https://wa.me/6285141632570?text=Asalamualaikum, saya mau tanya produk Setelan Anak Hiro Baju Anak Unisex"
         }
     },
@@ -216,7 +216,7 @@ const allProducts = [
         descImages: ["img/ukuransetelanAnakCasualLaki1.jpg", "img/ukuransetelanAnakCasualLaki2.jpg"],
         links: {
             tiktok: "https://vt.tokopedia.com/t/ZS96kvDxKM1rh-q4GEP/",
-            shopee: "https://s.shopee.co.id/60MLu54FDm",
+            shopee: "#",
             wa: "https://wa.me/6285141632570?text=Asalamualaikum, saya mau tanya produk SETELAN ANAK CASUAL LAKI LAKI TERBARU USIA 3-9 TAHUN ALA KOREAN STYLE VARIASI HOODIE"
         }
     },
@@ -233,7 +233,7 @@ const allProducts = [
         descImages: ["img/ukuransetelanAnakMotifF1.jpg", "img/ukuransetelanAnakMotifF2.jpg"],
         links: {
             tiktok: "https://vt.tokopedia.com/t/ZS96kvGfDMDNb-eo64P/",
-            shopee: "https://s.shopee.co.id/60MLu54FDm",
+            shopee: "#",
             wa: "https://wa.me/6285141632570?text=Asalamualaikum, saya mau tanya produk setelan anak baju dan celana laki laki kids 1-5th/baju anak murah"
         }
     },
@@ -250,7 +250,7 @@ const allProducts = [
         descImages: ["img/ukuransetelanBajuSalurCargo1.jpg", "img/ukuransetelanBajuSalurCargo2.jpg"],
         links: {
             tiktok: "https://vt.tokopedia.com/t/ZS96kcrY86ojH-eSJSH/",
-            shopee: "https://s.shopee.co.id/60MLu54FDm",
+            shopee: "#",
             wa: "https://wa.me/6285141632570?text=Asalamualaikum, saya mau tanya produk SETELAN BAJU SALUR DAN CELANA PENDEK CARGO STIK BALIK "
         }
     },
@@ -267,7 +267,7 @@ const allProducts = [
         descImages: ["img/ukuranshafaKidsDressBayi1.jpg", "img/ukuranshafaKidsDressBayi2.jpg"],
         links: {
             tiktok: "https://vt.tokopedia.com/t/ZS96kct6E1VUt-joyZD/",
-            shopee: "https://s.shopee.co.id/60MLu54FDm",
+            shopee: "#",
             wa: "https://wa.me/6285141632570?text=Asalamualaikum, saya mau tanya produk SHAFA KIDS SHOP / DRESS BAYI PEREMPUAN USIA 0 - 18 BULAN BAHAN RAYON VISCOSE / BAJU BAYI PEREMPUAN NEWBORN / FASHION BAYI DAN ANAK PEREMPUAN Kancing"
         }
     }
